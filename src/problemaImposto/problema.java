@@ -11,8 +11,8 @@ public class problema {
 		Scanner input = new Scanner(System.in);
 		
 		//Declaração e leitura de variáveis
-		double rendaAnualSalario, rendaAnualServicos, rendaAnualCapital, gastosMedicos, gastosEducacionais;
-		double salarioMensal, impostoSalario, impostoServicos, impostoGanhos, impostoDedutivel;
+		double rendaAnualSalario, rendaAnualServicos, rendaAnualCapital, gastosMedicos, gastosEducacionais, totalGastos;
+		double salarioMensal, impostoSalario, impostoServicos, impostoGanhos, impostoDedutivel, impostoBrutoTotal;
 		
 		impostoSalario = 0;
 		
@@ -53,11 +53,26 @@ public class problema {
 		//Deduções
 		System.out.println();
 		System.out.println("DEDUÇÕES:");
-		System.out.println();
 		
+		totalGastos = gastosMedicos + gastosEducacionais;
 		impostoDedutivel = (impostoSalario + impostoServicos + impostoGanhos) * 0.30;
 		System.out.printf("Máximo dedutível: %.2f%n", impostoDedutivel);
-		System.out.printf("Gastos dedutíveis: %.2f%n", gastosMedicos + gastosEducacionais);
+		System.out.printf("Gastos dedutíveis: %.2f%n", totalGastos);
+		
+		//Relatório final
+		System.out.println();
+		System.out.println("RESUMO: ");
+		
+		impostoBrutoTotal = impostoSalario + impostoServicos + impostoGanhos;
+			
+		System.out.printf("Imposto bruto total: %.2f%n", impostoBrutoTotal);
+		if (impostoDedutivel > totalGastos) {
+			System.out.printf("Abatimento: %.2f%n", totalGastos);
+			System.out.printf("Imposto devido: %.2f%n", impostoBrutoTotal - totalGastos);
+		} else {
+			System.out.printf("Abatimento: %.2f%n", impostoDedutivel);
+			System.out.printf("Imposto devido: %.2f%n", impostoBrutoTotal - impostoDedutivel);
+		}
 		
 		input.close();
 
