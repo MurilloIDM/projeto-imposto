@@ -12,7 +12,7 @@ public class problema {
 		
 		//Declaração e leitura de variáveis
 		double rendaAnualSalario, rendaAnualServicos, rendaAnualCapital, gastosMedicos, gastosEducacionais;
-		double salarioMensal, impostoSalario, impostoServicos, impostoGanhos;
+		double salarioMensal, impostoSalario, impostoServicos, impostoGanhos, impostoDedutivel;
 		
 		impostoSalario = 0;
 		
@@ -49,6 +49,15 @@ public class problema {
 		System.out.printf("Imposto sobre salário: %.2f%n", impostoSalario);
 		System.out.printf("Imposto sobre serviços: %.2f%n", impostoServicos);
 		System.out.printf("Imposto sobre ganho de capital: %.2f%n", impostoGanhos);
+		
+		//Deduções
+		System.out.println();
+		System.out.println("DEDUÇÕES:");
+		System.out.println();
+		
+		impostoDedutivel = (impostoSalario + impostoServicos + impostoGanhos) * 0.30;
+		System.out.printf("Máximo dedutível: %.2f%n", impostoDedutivel);
+		System.out.printf("Gastos dedutíveis: %.2f%n", gastosMedicos + gastosEducacionais);
 		
 		input.close();
 
